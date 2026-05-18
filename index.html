@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三訊電腦 韋冠科技 電腦維修 三峽 鶯歌 樹林 土城 - 首頁</title>
+    <link rel="icon" href="img-favicon-1743474652078.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-muted: #666;
+            --border-color: #eaedf2;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "微軟正黑體", sans-serif; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { line-height: 1.6; color: var(--secondary-color); background-color: var(--light-bg); }
+        
+        /* 🔵 置頂滿版藍色品牌核心橫幅 */
+        .blue-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .blue-banner h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        .blue-banner p {
+            font-size: 16px;
+            opacity: 0.95;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* 導覽列 */
+        header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 32px; height: 32px; border-radius: 4px; object-fit: cover; }
+        .logo-phone { font-size: 14px; background: #eef5fc; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+        .logo-phone a { color: #666; text-decoration: none; transition: color 0.3s; }
+        .logo-phone a:hover { color: var(--primary-color); }
+        .logo-phone i { color: var(--primary-color); margin-right: 4px; }
+        
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        
+        /* 相片外框左右留白、4個大圓角卡片化輪播區塊 */
+        .hero-container { 
+            max-width: 1200px; 
+            margin: 30px auto 0 auto; 
+            padding: 0 20px; 
+        }
+        .hero { 
+            position: relative; 
+            height: 55vh; 
+            border-radius: 40px; 
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
+        }
+        .hero-slideshow { width: 100%; height: 100%; position: relative; }
+        .hero-slide-wrapper { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: var(--white); 
+            opacity: 0; 
+            transition: opacity 0.8s ease-in-out; 
+        }
+        .hero-slide-wrapper img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        .hero-slide-wrapper.active { opacity: 1; }
+
+        /* 🌟 【修正】主頁四大特色卡片外框 - 確保電腦版強制定格在剛好一排（4欄） */
+        .features-container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 預設寬螢幕必定為 4 欄，絕對不掉行 */
+            gap: 20px; /* 稍微縮小卡片間距，為內容爭取更多橫向排版空間 */
+        }
+        .feature-card { background-color: var(--white); padding: 40px 25px; border-radius: 8px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border-color); transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 45px; color: var(--primary-color); margin-bottom: 20px; }
+        .feature-card h2 { font-size: 19px; color: #212529; margin-bottom: 15px; font-weight: 600; }
+        .feature-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; text-align: justify; }
+
+        /* 頁尾 */
+        footer { background-color: #222; color: #ccc; padding: 40px 20px; margin-top: 60px; scroll-margin-top: 90px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; }
+        .footer-info h3 { color: var(--white); margin-bottom: 15px; text-align: center; }
+        .footer-info p { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; justify-content: center; }
+        .footer-info p a { color: #ccc; text-decoration: none; transition: color 0.3s; }
+        .footer-info p a:hover { color: #fff; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #444; font-size: 14px; }
+
+        /* RWD 響應式裝置優化 */
+        @media (max-width: 1024px) {
+            /* 平板或中小筆電：切換為 2×2 排版，外觀最平衡 */
+            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        }
+        @media (max-width: 768px) {
+            .blue-banner { padding: 20px 15px; }
+            .blue-banner h1 { font-size: 22px; margin-bottom: 8px; }
+            .blue-banner p { font-size: 13px; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .logo-area { flex-direction: column; gap: 8px; text-align: center; }
+            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 10px 0; }
+            .nav-links li { margin: 0 10px; }
+            .hero { height: 35vh; border-radius: 24px; }
+            /* 手機版：切換為單欄直排，利於單手向下流暢滑動閱讀 */
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-area">
+                <a href="index.html" class="logo">
+                    <img src="img-favicon-1743474652078.jpg" alt="Logo">
+                    三訊 韋冠科技
+                </a>
+                <span class="logo-phone"><a href="tel:02-2673-1866"><i class="fa-solid fa-phone"></i> 02-2673-1866</a></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> 首頁</a></li>
+                <li><a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> 服務項目</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-microchip"></i> 精選商品</a></li>
+                <li><a href="#about-footer"><i class="fa-solid fa-address-card"></i> 關於我們</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-phone"></i> 聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blue-banner">
+        <h1>專業、誠信、效率 —— 全方位的資訊技術後盾</h1>
+        <p>深耕三峽、鶯歌、樹林、土城地區，提供公司行號到府維修、企業 IT 設備採購維護及個人電腦深層檢修。</p>
+    </section>
+
+    <div class="hero-container">
+        <section class="hero">
+            <div class="hero-slideshow">
+                <div class="hero-slide-wrapper active">
+                    <img src="img-carousel-1743580711650.jpg" alt="專屬圖片1">
+                </div>
+                <div class="hero-slide-wrapper">
+                    <img src="img-carousel-1743580712189.jpg" alt="專屬圖片2">
+                </div>
+                <div class="hero-slide-wrapper">
+                    <img src="img-carousel-1743580712747.jpg" alt="專屬圖片3">
+                </div>
+                <div class="hero-slide-wrapper">
+                    <img src="img-carousel-1743580713842.jpg" alt="專屬圖片4">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <main class="features-container">
+        <div class="features-grid">
+            
+            <div class="feature-card">
+                <i class="fa-solid fa-desktop"></i>
+                <h2>電腦維修與組裝</h2>
+                <p>專業桌上型電腦、電競主機與各廠牌筆記型電腦硬體深層檢修。包含主機板、顯示卡晶片級故障排除、客製化水冷散熱系統建置與升級最佳化，提供透明且公道的技術工料報價。</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-network-wired"></i>
+                <h2>網路工程與弱電佈線</h2>
+                <p>專精透天住宅、商業辦公室之 10G 高速光纖骨幹、2.5G 乙太網路架構規劃與施工。提供實體暗管弱電佈線、企業級 Mesh Wi-Fi 無縫漫遊環境部署及專業機櫃整理服務。</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-building-user"></i>
+                <h2>企業 IT 委外服務</h2>
+                <p>為中小企業、診所及學校提供彈性且即時的資訊設備委外（IT Outsourcing）維護合約。涵蓋伺服器日常監控、工作站批次部署、週邊軟硬體採購支援與緊急到府故障排除。</p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fa-solid fa-microchip"></i>
+                <h2>精選週邊耗材販售</h2>
+                <p>常備高品質固態硬碟（SSD）、高速記憶體、高規電源供應器及各品牌雷射印表機專用優質碳粉匣、點陣色帶等資訊耗材。全品項皆為原廠公司貨並附帶最完整的售後服務。</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer id="about-footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>聯絡我們</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 新北市三峽區和平街59號</p>
+                <p><i class="fa-solid fa-phone"></i> 服務專線：<a href="tel:02-2673-1866">02-2673-1866</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 三訊 韋冠科技 版權所有。</div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide-wrapper');
+            let currentSlide = 0;
+            
+            setInterval(function() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 4000); // 4秒自動換照
+        });
+    </script>
+</body>
+</html>

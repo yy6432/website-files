@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精選商品 - 三訊電腦 韋冠科技</title>
+    <link rel="icon" href="img-favicon-1743474652078.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #eaedf2;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "微軟正黑體", sans-serif; }
+        body { line-height: 1.6; color: var(--secondary-color); background-color: var(--light-bg); }
+        
+        /* 導覽列 */
+        header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 32px; height: 32px; border-radius: 4px; object-fit: cover; }
+        .logo-phone { font-size: 14px; background: #eef5fc; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+        .logo-phone a { color: #666; text-decoration: none; transition: color 0.3s; }
+        .logo-phone a:hover { color: var(--primary-color); }
+        .logo-phone i { color: var(--primary-color); margin-right: 4px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        
+        .page-header { background: linear-gradient(135deg, #004094 0%, #0066d6 100%); color: var(--white); text-align: center; padding: 40px 20px; }
+        .page-header h1 { font-size: 30px; margin-bottom: 10px; font-weight: 700; }
+        
+        .products-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background-color: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        
+        .product-img-wrapper { width: 100%; aspect-ratio: 4 / 3; background-color: #f7f9fc; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        .product-img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-info h3 { font-size: 18px; color: #1a1a1a; margin-bottom: 10px; font-weight: 600; min-height: 54px; display: flex; align-items: center; border-bottom: 1px solid #f0f2f5; padding-bottom: 8px; }
+        .product-info p { font-size: 14px; color: #555; line-height: 1.6; text-align: justify; }
+        
+        footer { background-color: #222; color: #ccc; padding: 40px 20px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .footer-info h3 { color: var(--white); margin-bottom: 15px; }
+        .footer-info p { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .footer-info p a { color: #ccc; text-decoration: none; transition: color 0.3s; }
+        .footer-info p a:hover { color: #fff; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #444; font-size: 14px; }
+        
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; }
+            .logo-area { flex-direction: column; gap: 8px; text-align: center; }
+            .nav-links { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-area">
+                <a href="index.html" class="logo">
+                    <img src="img-favicon-1743474652078.jpg" alt="Logo">
+                    三訊 韋冠科技
+                </a>
+                <span class="logo-phone"><a href="tel:02-2673-1866"><i class="fa-solid fa-phone"></i> 02-2673-1866</a></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> 首頁</a></li>
+                <li><a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> 服務項目</a></li>
+                <li><a href="products.html" class="active"><i class="fa-solid fa-microchip"></i> 精選商品</a></li>
+                <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> 關於我們</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-phone"></i> 聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>精選優質週邊零件與資訊耗材</h1>
+    </section>
+
+    <main class="products-container">
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="51.png" alt="各式螢幕與影音傳輸線"></div>
+                <div class="product-info">
+                    <h3>1. 各式螢幕與影音傳輸線｜HDMI・DVI・VGA 全系列上架</h3>
+                    <p>穩定傳輸高畫質影像，支援電腦、顯示器、投影機與電視等裝置。 畫面清晰不卡頓，滿足辦公與娛樂的多元需求。</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="52.png" alt="聲音設備專區"></div>
+                <div class="product-info">
+                    <h3>2. 聲音設備專區｜耳機・麥克風・直播與會議音訊配件</h3>
+                    <p>清晰收音、舒適佩戴，無論是線上課程、遊戲語音或直播，都能完美呈現。 提供 PUQI、SADES、Prolink 等品牌選擇。</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="53.png" alt="滑鼠專區"></div>
+                <div class="product-info">
+                    <h3>3. 滑鼠專區｜有線・無線・電競滑鼠全系列上架</h3>
+                    <p>Logitech、Rapoo、Microsoft 等品牌現貨供應。 精準操控、舒適手感，工作遊戲兩相宜。</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="54.png" alt="儲存與列印專區"></div>
+                <div class="product-info">
+                    <h3>4. 儲存與列印專區｜隨身碟・外接硬碟・印表機墨水</h3>
+                    <p>資料備份、檔案傳輸、文件列印一次搞定。 提供 Kingston、SanDisk、HP、Canon 等熱門品牌，品質穩定有保障</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="55.png" alt="鍵盤專區"></div>
+                <div class="product-info">
+                    <h3>5. 鍵盤專區｜有線・無線・機械式鍵盤滑鼠組全系列上架</h3>
+                    <p>打字順手、操控靈敏，提供多款鍵盤滑鼠組與單品選擇。 Logitech、Rapoo、Microsoft 等品牌現貨供應，工作與遊戲皆適用</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="56.png" alt="高速網路線專區"></div>
+                <div class="product-info">
+                    <h3>6. 高速網路線專區｜CAT6・CAT7 傳輸線全面上架</h3>
+                    <p>穩定連線、不再掉速！ 提供多種長度與類型的網路線，適用居家、辦公與企業環境。</p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-wrapper"><img src="57.png" alt="電腦散熱專區"></div>
+                <div class="product-info">
+                    <h3>7. 電腦散熱專區｜高效風扇・靜音散熱器</h3>
+                    <p>降溫提效，延長硬體壽命！ 提供多尺寸風扇與 LED 散熱方案，穩定運行更安靜。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>關於三訊 韋冠</h3>
+                <p>深耕三峽、鶯歌、樹林、土城地區，提供最專業、即時的電腦維修與資訊系統整合服務。</p>
+            </div>
+            <div class="footer-info">
+                <h3>聯絡我們</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 新北市三峽區和平街59號</p>
+                <p><i class="fa-solid fa-phone"></i> 服務專線：<a href="tel:02-2673-1866">02-2673-1866</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 三訊 韋冠科技 版權所有。</div>
+    </footer>
+</body>
+</html>
