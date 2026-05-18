@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務項目 - 三訊電腦 韋冠科技</title>
+    <link rel="icon" href="img-favicon-1743474652078.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --text-muted: #666;
+            --border-color: #eaedf2;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "微軟正黑體", sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { line-height: 1.6; color: var(--secondary-color); background-color: var(--light-bg); }
+        
+        /* 🔵 置頂滿版藍色品牌核心橫幅 */
+        .blue-banner {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .blue-banner h1 { font-size: 32px; margin-bottom: 12px; font-weight: 600; letter-spacing: 2px; }
+        .blue-banner p { font-size: 16px; opacity: 0.95; max-width: 1000px; margin: 0 auto; font-weight: 400; letter-spacing: 0.5px; }
+
+        /* 導覽列 */
+        header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 15px 20px; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 32px; height: 32px; border-radius: 4px; object-fit: cover; }
+        .logo-phone { font-size: 14px; background: #eef5fc; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+        .logo-phone a { color: #666; text-decoration: none; transition: color 0.3s; }
+        .logo-phone a:hover { color: var(--primary-color); }
+        .logo-phone i { color: var(--primary-color); margin-right: 4px; }
+        
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { text-decoration: none; color: var(--secondary-color); font-weight: 500; transition: color 0.3s; display: flex; align-items: center; gap: 5px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+        
+        /* 主內容區塊 */
+        .main-content { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .page-title { font-size: 28px; color: #212529; margin-bottom: 30px; text-align: center; font-weight: 600; }
+        
+        /* 🔹 服務項目網格排版 (電腦版並排 3 個卡片) */
+        .service-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+        }
+        
+        /* 🔹 卡片設計（上圖下文） */
+        .service-card { 
+            background: var(--white); 
+            border: 1px solid var(--border-color); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        
+        /* 圖片容器 */
+        .service-img-box { 
+            width: 100%; 
+            height: 200px; 
+            overflow: hidden; 
+            background-color: #eee;
+        }
+        .service-img-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s;
+        }
+        .service-card:hover .service-img-box img {
+            transform: scale(1.05);
+        }
+        
+        /* 文字內容區 */
+        .service-info { 
+            padding: 25px; 
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-info h2 { 
+            font-size: 19px; 
+            color: #212529; 
+            margin-bottom: 12px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .service-info h2 i {
+            color: var(--primary-color);
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+        .service-info p { 
+            color: #555; 
+            font-size: 14px; 
+            text-align: justify; 
+            line-height: 1.6;
+        }
+
+        /* 頁尾 - 雙欄深灰色設計 */
+        footer {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .footer-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #b0b0b0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-section p a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-section p a:hover {
+            color: #ffffff;
+        }
+        .footer-section i {
+            font-size: 18px;
+            color: #ffffff;
+            width: 20px;
+            text-align: center;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 響應式斷點 */
+        @media (max-width: 992px) {
+            .service-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .blue-banner { padding: 20px 15px; }
+            .blue-banner h1 { font-size: 22px; margin-bottom: 8px; }
+            .blue-banner p { font-size: 13px; }
+            .navbar { flex-direction: column; gap: 15px; }
+            .logo-area { flex-direction: column; gap: 8px; text-align: center; }
+            .nav-links { width: 100%; justify-content: center; flex-wrap: wrap; gap: 10px 0; }
+            .nav-links li { margin: 0 10px; }
+            .service-grid { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo-area">
+                <a href="index.html" class="logo">
+                    <img src="img-favicon-1743474652078.jpg" alt="Logo">
+                    三訊 韋冠科技
+                </a>
+                <span class="logo-phone"><a href="tel:02-2673-1866"><i class="fa-solid fa-phone"></i> 02-2673-1866</a></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> 首頁</a></li>
+                <li><a href="services.html" class="active"><i class="fa-solid fa-screwdriver-wrench"></i> 服務項目</a></li>
+                <li><a href="products.html"><i class="fa-solid fa-microchip"></i> 精選商品</a></li>
+                <li><a href="contact.html"><i class="fa-solid fa-phone"></i> 聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="blue-banner">
+        <h1>專業、誠信、效率 —— 全方位的資訊技術後盾</h1>
+        <p>深耕三峽、鶯歌、樹林、土城地區，提供公司行號到府維修、企業 IT 設備採購維護及個人電腦深層檢修。</p>
+    </section>
+
+    <main class="main-content">
+        <h1 class="page-title">我們的服務項目</h1>
+        
+        <div class="service-grid">
+            
+            <div class="service-card">
+                <div class="service-img-box"><img src="1.png" alt="監視器建置工程"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-video"></i> 監視器建置工程</h2>
+                    <p>專為住家、店面、廠房規劃高畫質安全監控系統。提供專業佈線、鏡頭定位、夜視與動態偵測設定，並建置遠端手機即時監看，全方位守護您的場域安全。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="2.png" alt="網路弱電工程"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-network-wired"></i> 網路弱電工程</h2>
+                    <p>承接各類住宅與商業辦公室之弱電佈線規劃。包含實體網路線路鋪設、理線槽配置、訊號檢測，為您的環境建立井然有序、穩定不斷線的網路硬體底層基礎。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="3.png" alt="光纖熔接與測試"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-cable-text"></i> 光纖熔接與測試</h2>
+                    <p>具備專業光纖核心熔接與精準的光功率損耗測試服務。針對骨幹網路、跨樓層或遠距離高速傳輸需求，提供低損耗、高頻寬的專業光纖對接與除錯工程。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="4.png" alt="門禁系統建置"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-id-card"></i> 門禁系統建置</h2>
+                    <p>規劃密碼、感應卡、指紋等多元管制門禁系統。適用於公司行號辦公室、社區大樓、管制區域，強化出入人員安全管理，並支援與考勤系統靈活整合。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="5.png" alt="商用電話總機"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-phone-volume"></i> 商用電話總機</h2>
+                    <p>針對中小企業與辦公空間建置數位電話總機系統。包含分機配置、自動語音應答、轉接功能設定與線路檢修，優化企業內外部的語音通訊效率。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="6.png" alt="各類主機/客製電競組裝"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-gamepad"></i> 客製化主機與電競組裝</h2>
+                    <p>依據您的特定需求（3D繪圖、影音剪輯、極致電競），嚴選高相容性硬體零組件。提供細緻的整線工藝、散熱風道規劃與嚴格的效能燒機測試，打造高效能主機。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="7.png" alt="桌機/筆電硬體維修升級"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-laptop-medical"></i> 桌機與筆電維修升級</h2>
+                    <p>提供各品牌電腦的深層檢修、故障排查，以及高速固態硬碟（SSD）與記憶體（RAM）硬體升級。有效活化老舊設備速度，花小錢即可大幅延續使用壽命。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="8.png" alt="冷氣清洗與保養"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-snowflake"></i> 冷氣清洗與保養</h2>
+                    <p>提供專業分離式、窗型冷氣深層無塵清洗與消毒。清除內部堆積的黴菌、塵蟎與棉旭，有效改善室內空氣品質、提升冷房效能並達到節能省電的效果。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="9.png" alt="水電工程與檢修"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-faucet-drip"></i> 水電工程與檢修</h2>
+                    <p>常備專業水電線路排查維修。包含住宅與辦公室室內配線、開關插座更換、燈具建置、水管漏水修復等日常水電疑難雜症，由經驗豐富的師傅妥善處置。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="10.png" alt="智能家居規劃"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-house-laptop"></i> 智能家居規劃</h2>
+                    <p>整合物聯網科技，打造現代化智慧生活。協助建置智慧燈光、遠端家電控制、環境感測與語音助理聯動，讓您一鍵或透過手機即可輕鬆掌控全屋動態。</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-img-box"><img src="image_0b57af.jpg" alt="原廠精選週邊耗材販售"></div>
+                <div class="service-info">
+                    <h2><i class="fa-solid fa-microchip"></i> 原廠精選週邊耗材販售</h2>
+                    <p>現場與線上常備高品質固態硬碟（SSD）、高速記憶體（RAM）、高穩定度電源供應器等關鍵升級零組件。同時供應各品牌雷射印表機專用優質碳粉匣、點陣式印表機色帶等資訊耗材。我們承諾全品項皆為原廠公司貨，並附帶最完整的售後保固保障。</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>關於三訊 韋冠</h3>
+                <p>深耕三峽、鶯歌、樹林、土城地區，提供最專業、即時的電腦維修與資訊系統整合服務。</p>
+            </div>
+            <div class="footer-section">
+                <h3>聯絡我們</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 新北市三峽區和平街59號</p>
+                <p><i class="fa-solid fa-phone"></i> 服務專線：<a href="tel:02-2673-1866">02-2673-1866</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 三訊 韋冠科技 版權所有。</div>
+    </footer>
+
+</body>
+</html>
